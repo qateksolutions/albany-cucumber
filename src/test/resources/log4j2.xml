@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %highlight{%-5level %logger{36} - %msg}{FATAL=reverse red, ERROR=bright red, WARN=bright yellow, INFO=normal, DEBUG=bright blue, TRACE=white}%n" />
+        </Console>
+        <File name="FullLog" fileName="logs/app.${date:yyyy-MM-dd_hh-mm-ss}.log" immediateFlush="false" append="false">
+            <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t][%r] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console" level="info"/>
+            <AppenderRef ref="FullLog" level="debug"/>
+        </Root>
+    </Loggers>
+</Configuration>
